@@ -4,9 +4,9 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Seller implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	private Integer id;
 	private String name;
 	private String email;
@@ -14,7 +14,7 @@ public class Seller implements Serializable {
 	private Double baseSalary;
 
 	private Department department;
-	
+
 	public Seller() {
 	}
 
@@ -26,7 +26,6 @@ public class Seller implements Serializable {
 		this.baseSalary = baseSalary;
 		this.department = department;
 	}
-	
 
 	public Integer getId() {
 		return id;
@@ -66,6 +65,14 @@ public class Seller implements Serializable {
 
 	public void setBaseSalary(Double baseSalary) {
 		this.baseSalary = baseSalary;
+	}
+
+	public Department getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(Department department) {
+		this.department = department;
 	}
 
 	@Override
@@ -128,5 +135,5 @@ public class Seller implements Serializable {
 		return "Seller [id=" + id + ", name=" + name + ", email=" + email + ", birthDate=" + birthDate + ", baseSalary="
 				+ baseSalary + ", department=" + department + "]";
 	}
-	
+
 }
