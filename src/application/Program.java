@@ -15,27 +15,33 @@ public class Program {
 
 		SellerDao sellerDao = DaoFactory.createSellerDao();
 		
-		System.out.println("--- Test 1: Seller findByID ---");
+		System.out.println("--- Teste 1: procura pelo id ---");
 		Seller seller = sellerDao.findById(3);
 		System.out.println(seller);
 		
-		System.out.println("\n--- Test 1: Seller findByDepartment ---");
+		System.out.println("\n--- Teste 2: procura pelo departamento ---");
 		Department department = new Department(2, null);
 		List<Seller> list = sellerDao.findByDepartment(department);
 		for(Seller obj : list) {
 			System.out.println(obj);
 		}
 		
-		System.out.println("\n--- Test 3: Seller findAll ---");
+		System.out.println("\n--- Teste 3: procurar todos ---");
 		list = sellerDao.findAll();
 		for(Seller obj : list) {
 			System.out.println(obj);
 		}
 		
-		System.out.println("\n--- Test 4: Seller insert ---");
+		System.out.println("\n--- Test 4: inserir novo vendedor ---");
 		Seller newSeller = new Seller(null, "Marcos", "marcos@gmail.com", new Date(), 4000.0, department);
 		sellerDao.insert(newSeller);
 		System.out.println("inserted new id = " + newSeller.getId());
+		
+		System.out.println("\n--- Test 5: atualizar um vendedor ---");
+		seller = sellerDao.findById(1);
+		seller.setName("Martinha Silva");
+		sellerDao.update(seller);
+		System.out.println("Atualizaçao feita!");
 	}
 
 }
